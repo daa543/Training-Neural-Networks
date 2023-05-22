@@ -18,12 +18,14 @@ Train the model using:
 
 Plot the following
 • Training / Validation Loss.
+
 • Training / Validation Accuracy.
 
 ### Step 3
 Add Dropout and Layer Normalization layers to your model’s architecture. Retrain the model and compare the following plot.
 
 • Train / Validation loss.
+
 • Train / Validation Accuracy.
 
 Report what happened to the model performance and why, based on the number of layers (Dropout / Layer Normalization) you added and the value of Dropout.
@@ -32,6 +34,7 @@ Report what happened to the model performance and why, based on the number of la
 Train 3 more model based on the model architecture you chose in step 3. For each model you will change the following:
 
 • Learning Rate (0.001, 0.0005, 0.0001).
+
 • Probability of Dropout. (0.2, 0.4, 0.6).
 
 Report same plots and comparisons requested in step 3.

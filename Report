@@ -1,1 +1,47 @@
-[Report.docx](https://github.com/daa543/Training-Neural-Networks/files/11533176/Report.docx)
+step 1
+First I am going to download the MNIST dataset from kaggel and then apply any preprocessing needed on the data. Then I am going to split the data randomly into being 80% training set and 20% validation set. We are going to convert its type to numpy to convert it to tensor. CTDataset is normalizing the features (pixels values) between 0 and 1 and the labels converts it to units vector where the 1 is our location of what class it is the label determines the element with the highest value and represents its location as a one-hot vector/tensor the known probability that an image corresponds to a certain class.
+
+
+Step 2
+Dropout is a technique used in neural networks to reduce overfitting. It is a technique where randomly selected neurons are dropped out during training. Therefore, the neural network is forced to rely on the remaining neurons to make predictions, which helps in preventing overfitting. Layer normalization is a normalization technique used in neural networks to improve the stability and performance of a model. Layer normalization normalizes over the features of each individual sample. This will reduce the dependency on the specific batch examples and will allow for more stable and strong training.
+
+![Screenshot 2023-05-22 183923](https://github.com/daa543/Training-Neural-Networks/assets/106112852/642be59d-b677-45ce-a4ec-d410fce10988)
+
+Here I have the loss and accuracy plot without any dropout or layer normalization. In the loss plot the validation starts with decreasing and then it keeps on increasing and decreasing continuously while the epoch is increasing. In the training loss it keeps on decreasing while epoch is increasing. In the accuracy plot the train is increasing while the epoch is increasing and the validation accuracy keeps on decreasing and increasing continuously. From the plots there is overfitting.
+
+Step 3 :
+After Add Dropout and Layer Normalization layers the overfitting reduces but with different probability of dropping out there is different results
+
+1-	Here with 70 percentage dropping out of nodes :
+Gives better result and reduce overfitting ,  in plots the accuracy of validation set Is better than the accuracy in training and it seems that both will not intersect and When training 70 percentage of the features are set to zero , When validation all features are used So the model at validation can lead to higher accuracies and this percentage thats forces the layers to take less responsibility for the input this ensures that the model is getting generalised and hence reducing the overfitting problem but too high a dropout rate can slow the convergence rate of the model as shown in the loss plot as the final loss is 0.2 and that’s hurt final performance and the model will not being able to fit perfectly. 
+
+![Screenshot 2023-05-22 184104](https://github.com/daa543/Training-Neural-Networks/assets/106112852/62618f36-df3e-4184-9e6f-dc005db17205)
+
+![Screenshot 2023-05-22 184142](https://github.com/daa543/Training-Neural-Networks/assets/106112852/41687716-ab52-4fdf-86d9-4882378e36a8)
+
+2-	Here with 30 percentage of dropping out the nodes it reduces overfitting but it still there is overfitting as in accuracy plot the accuracy of validation intersect the accuracy of training and . In the loss plot the validation starts with decreasing and then it keeps on increasing while the epoch is increasing. In the training loss it keeps on decreasing while epoch is increasing and that’s because of the percentage of drop out is not big enough few nodes will be dropped out and that reduces overfitting and make accuracy in validation decrease a little bit every epoch but still there is overfitting and that’s mean the layers still take responsibility for the input.
+-	layer normalization here provides faster training, better generalization, and also makes the network more stable and less sensitive to the scale of the inputs.
+
+![Screenshot 2023-05-22 184333](https://github.com/daa543/Training-Neural-Networks/assets/106112852/a3deb6c0-e2fb-4b14-8283-f86cf753df80)
+
+Step 4: 
+1.	with learning rate 0.001 and the value of dropout is 0.2
+
+![Screenshot 2023-05-22 184433](https://github.com/daa543/Training-Neural-Networks/assets/106112852/3f128fed-1624-4d81-9245-28b4575bffe4)
+
+-	Here with dropout with probability 0.2 and that’s mean 20% of the nodes would be dropped it seems a few nodes will be dropped out and that reduces overfitting and make accuracy in validation decrease a little bit every epoch but still there is overfitting and that’s mean the layers still take responsibility for the input
+-	The learning rate is good as its converge and reach the minima by has 0.0 is constant at least 5 epochs
+
+2.	with learning rate 0.0005 and the value of dropout is 0.4
+
+![Screenshot 2023-05-22 184531](https://github.com/daa543/Training-Neural-Networks/assets/106112852/62f7ca84-52c5-45a1-b8d2-681d11bc7765)
+
+-	learning rate here is small and it takes small steps to reach the minima and in specified epochs it stops at the point that is not the minimum because of the small steps it take and it require more epochs and updates to reach the minima here stops in loss=0.1 while with the learning rate 0.001 it reaches the minima with loss 0.06
+-	dropout with probability of dropping out the nodes is 0.4 and that’s forces the layers to take less responsibility for the input but here with the plot said 0.4 is not enough for erase overfitting as it seems that the graph of accuracy in validation will make intersection with the graph of accuracy in training and seems with more epochs maybe there will be that the accuracy of validation will be less than training accuracy and the model won’t perfectly generalised
+
+3. with learning rate 0.0001 and the value of dropout is 0.6
+
+![Screenshot 2023-05-22 184714](https://github.com/daa543/Training-Neural-Networks/assets/106112852/b6200df9-859c-4b33-8072-9c929404d355)
+
+-	learning rate here is to small and that’s mean it takes very small steps to reach the minima and in our specified epochs it will reach to loss = 0.2 ; with this learning it require more epochs to reach to the minima or to have learning rate bigger to train the model faster
+-   dropout with probability of dropping out the nodes is 0.6 in plots the accuracy of validation set Is better than the accuracy in training and it seems that both will not intersect and that’s because of the behaviour when training and validation are different , When training 60 percentage of the features are set to zero , When validation all features are used So the model at validation can lead to higher accuracies and this percentage thats forces the layers to take less responsibility for the input this ensures that the model is getting generalised and hence reducing the overfitting problem.

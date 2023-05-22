@@ -11,7 +11,9 @@ Build a neural network architecture from scratch using PyTorch. The network shou
 
 Train the model using:
 • Optimizer: Adam
+
 • Learning rate : 0.01
+
 • Loss Function: Cross Entropy
 
 Plot the following

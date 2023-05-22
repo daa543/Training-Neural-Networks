@@ -10,6 +10,7 @@ Download the MNIST dataset from kaggel and apply any preprocessing needed on the
 Build a neural network architecture from scratch using PyTorch. The network should have at least two hidden layers and should use ReLU activation function between hidden layers. You can change the number of hidden layers, number of perceptrons in each layer based on your own preferences.
 
 Train the model using:
+
 • Optimizer: Adam
 
 • Learning rate : 0.01
@@ -17,6 +18,7 @@ Train the model using:
 • Loss Function: Cross Entropy
 
 Plot the following
+
 • Training / Validation Loss.
 
 • Training / Validation Accuracy.
